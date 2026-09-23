@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohamed Turky | Data Analyst Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Projects layout - force all projects to render as full-width cards */
+    .project-count{margin:0 0 14px;color:#19cfff;font-size:12px;font-weight:800;letter-spacing:2px;}
+    .project-list{display:flex !important;flex-direction:column !important;gap:20px !important;width:100% !important;}
+    .project-list > .project-card{display:grid !important;visibility:visible !important;opacity:1 !important;position:relative !important;width:100% !important;min-height:300px !important;height:auto !important;overflow:hidden !important;margin:0 !important;}
+    .project-card{width:100%;min-height:320px;overflow:hidden;}
+    .project-card.project-with-image{display:grid;grid-template-columns:50% 50%;padding:0;min-height:320px;}
+    .project-card.project-with-image .project-cover{width:100%;height:100%;min-height:320px;object-fit:contain;object-position:center;background:#081727;display:block;}
+    .project-card.project-with-image .project-info{padding:48px;}
+    .project-no-image{display:grid !important;grid-template-columns:180px 1fr;align-items:stretch;padding:0;}
+    .project-no-image .project-info{padding:42px 48px;}
+    .project-number-panel{display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,rgba(19,52,84,.95),rgba(8,23,39,.98));border-right:1px solid rgba(74,190,255,.18);}
+    .project-number-panel span{font-size:72px;font-weight:800;color:rgba(54,132,188,.45);}
+    .case-btn{display:inline-flex;align-items:center;margin-top:18px;padding:0;border:0;background:none;color:#19cfff;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;}
+    .case-btn:hover{color:#fff;transform:translateX(4px);}
+    #case-tools{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px;}
+    #case-tools .tool{margin:0;}
+    /* Dashboard gallery: every dashboard gets the same visual weight */
+    #case-gallery-main{display:none !important;}
+    #case-gallery-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:24px;width:100%;align-items:start;}
+    #case-gallery-grid img{width:100%;height:auto;max-width:100%;display:block;object-fit:contain;object-position:center;border-radius:18px;border:1px solid rgba(74,190,255,.16);background:#081727;}
+    #case-gallery-grid:empty{display:none;}
+    #case-gallery-grid img:nth-child(3){grid-column:1 / -1;max-width:calc(50% - 12px);justify-self:center;}
+    .mini-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;}
+    .hero-card{
+      transform:translateY(-28px);
+      min-height:520px;
+      height:520px;
+    }
+    .hero-card .profile-card{
+      width:290px;
+      padding:30px;
+    }
+    .hero-card .profile-photo{
+      width:220px;
+      height:220px;
+      object-fit:cover;
+      object-position:center;
+      margin:0 auto 16px;
+    }
+    .hero-card .profile-card > p{
+      font-size:20px;
+      font-weight:800;
+      margin-top:0;
+    }
+    .hero-card .profile-card > span{
+      font-size:15px;
+    }
+    .hero-card .status{
+      font-size:13px;
+      margin-top:20px;
+    }
+
+    @media(max-width:800px){
+      .hero-card{
+        transform:none;
+        min-height:400px;
+        height:400px;
+      }
+      .hero-card .profile-card{
+        width:280px;
+      }
+      .hero-card .profile-photo{
+        width:205px;
+        height:205px;
+      }
+
+      .mini-stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;}
+      .project-count{margin:0 0 14px;color:#19cfff;font-size:12px;font-weight:800;letter-spacing:2px;}
+    .project-list{display:flex !important;flex-direction:column !important;}
+      .project-card.project-with-image,.project-no-image{grid-template-columns:1fr;}
+      .project-card.project-with-image .project-cover{min-height:220px;}
+      .project-card.project-with-image .project-info,.project-no-image .project-info{padding:28px;}
+      .project-number-panel{min-height:130px;border-right:0;border-bottom:1px solid rgba(74,190,255,.18);}
+      #case-gallery-grid{grid-template-columns:1fr;}
+      #case-gallery-grid img:nth-child(3){grid-column:auto;max-width:100%;}
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#home">MT<span>.</span></a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#bio">Bio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-btn" href="#contact">Let's Talk</a>
+    <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <div class="mobile-menu" aria-hidden="true">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#projects">Projects</a>
+    <a href="#case-study">Case Study</a>
+    <a href="#bio">Bio</a>
+    <a href="#contact">Contact</a>
+    <a class="mobile-menu-cta" href="#contact">Let's Talk ↗</a>
+  </div>
+
+  <main>
+    <section id="home" class="hero section">
+      <div class="hero-copy">
+        <p class="eyebrow">DATA ANALYSIS • BUSINESS INTELLIGENCE</p>
+        <h1>Turning <span>data</span> into clear business decisions.</h1>
+        <p class="hero-text">
+          I'm Mohamed Turky, a Computer Science student at Ain Shams University focused on Data Analysis and Business Intelligence.
+          I work with Python, SQL, Excel, and Power BI to build practical dashboards, analyze data, and turn complex information into clear, actionable insights.
+        </p>
+        <div class="actions">
+          <a class="primary" href="#projects">View My Work</a>
+          <a class="secondary" href="#contact">Contact Me</a>
+        </div>
+        <div class="mini-stats">
+          <div><strong>Power BI</strong><span>Dashboards</span></div>
+          <div><strong>Python</strong><span>Data Analysis</span></div>
+          <div><strong>SQL</strong><span>Data & Queries</span></div>
+          <div><strong>Excel</strong><span>Data & Reporting</span></div>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="grid-orb"></div>
+        <div class="profile-card">
+          <img class="profile-photo" src="assets/profile.png" alt="Mohamed Turky">
+          <p>Mohamed Turky</p>
+          <span>Data Analyst</span>
+          <div class="status"><i></i> Available for projects</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head">
+        <p class="eyebrow">ABOUT ME</p>
+        <h2>Turning Data Into Practical Solutions.</h2>
+      </div>
+      <div class="about-grid">
+        <div>
+          <p>
+            I work with Python, SQL, Excel, and Power BI to clean data, uncover patterns,
+            analyze business performance, and build interactive dashboards.
+          </p>
+          <p>
+            Through academic projects, training programs, and practical work, I've developed
+            a strong focus on turning complex datasets into clear, useful insights that are easier to understand and act on.
+          </p>
+        </div>
+        <div class="brand-box">
+          <span>Personal Brand</span>
+          <h3>I help businesses turn raw data into clear insights and interactive dashboards that support better decisions.</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section alt">
+      <div class="section-head">
+        <p class="eyebrow">SERVICES</p>
+        <h2>What I Can Do With Your Data</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="icon">01</div>
+          <h3>Data Cleaning</h3>
+          <p>Turn messy and inconsistent data into a clean, reliable dataset ready for analysis.</p>
+        </article>
+        <article class="card">
+          <div class="icon">02</div>
+          <h3>Data Analysis</h3>
+          <p>Find patterns, trends, and key insights that help you understand what is really happening in your business.</p>
+        </article>
+        <article class="card">
+          <div class="icon">03</div>
+          <h3>Power BI Dashboards</h3>
+          <p>Build interactive dashboards that turn complex data into clear KPIs and easy-to-use business views.</p>
+        </article>
+        <article class="card">
+          <div class="icon">04</div>
+          <h3>Reporting & Insights</h3>
+          <p>Turn analysis into clear reports and actionable insights that make business decisions easier.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-head">
+        <p class="eyebrow">SELECTED WORK</p>
+        <h2>Projects that show how I work</h2>
+      </div>
+
+      <p class="project-count">04 PROJECTS</p>
+      <div class="projects project-list">
+        <article class="project featured project-with-image project-card">
+          <img class="project-cover" src="assets/we-cover.png" alt="WE Customer Analytics Dashboard">
+          <div class="project-info">
+            <p class="tag">Python • Power BI • Machine Learning</p>
+            <h3>Telecom Customer Analytics & Customer Churn</h3>
+            <p>Customer behavior analysis, churn exploration, visualization, dashboarding, and machine learning modeling.</p>
+            <button class="case-btn" type="button" data-project="we">View Case Study →</button>
+          </div>
+        </article>
+
+        <article class="project project-card project-no-image">
+          <div class="project-number-panel"><span>02</span></div>
+          <div class="project-info">
+            <p class="tag">Power BI • Excel</p>
+            <h3>E-Commerce Sales Dashboard</h3>
+            <p>Interactive sales reporting with KPIs and visuals designed to make performance easier to monitor.</p>
+            <button class="case-btn" type="button" data-project="ecommerce">View Case Study →</button>
+          </div>
+        </article>
+
+        <article class="project project-card project-with-image">
+          <img class="project-cover" src="assets/Cover.png" alt="Super Store Sales Dashboard">
+          <div class="project-info">
+            <p class="tag">Power BI • Excel</p>
+            <h3>Super Store Sales Analysis</h3>
+            <p>Sales performance analysis and dashboard visualization focused on sales, shipping, products, categories, and business insights.</p>
+            <button class="case-btn" type="button" data-project="superstore">View Case Study →</button>
+          </div>
+        </article>
+
+        <article class="project project-card project-no-image">
+          <div class="project-number-panel"><span>04</span></div>
+          <div class="project-info">
+            <p class="tag">Python • Data Analysis</p>
+            <h3>Student Performance Analysis</h3>
+            <p>Analyzing student scores, grades, test preparation, parental education, subject relationships, and performance patterns.</p>
+            <button class="case-btn" type="button" data-project="student">View Case Study →</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="case-study" class="section alt">
+      <div class="section-head">
+        <p class="eyebrow">CASE STUDY</p>
+        <h2 id="case-title">Telecom Customer Analytics & Customer Churn</h2>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-main">
+          <div class="case-item"><span>Objective</span><p id="case-objective"></p></div>
+          <div class="case-item"><span>My Role</span><p id="case-role"></p></div>
+          <div class="case-item"><span>Process</span><p id="case-process"></p></div>
+          <div class="case-item"><span>Output</span><p id="case-output"></p></div>
+          <div class="case-item"><span>Value</span><p id="case-value"></p></div>
+        </div>
+        <aside class="tool-panel">
+          <p class="eyebrow">TOOLS</p>
+          <div id="case-tools"></div>
+        </aside>
+      </div>
+
+      <div class="dashboard-gallery" id="case-gallery">
+        <p class="eyebrow">DASHBOARD PREVIEW</p>
+        <div class="dashboard-main" id="case-gallery-main"></div>
+        <div class="dashboard-grid" id="case-gallery-grid"></div>
+      </div>
+    </section>
+
+    <section id="bio" class="section">
+      <div class="section-head">
+        <p class="eyebrow">PROFESSIONAL BIO</p>
+        <h2>How I Can Help</h2>
+      </div>
+      <div class="bio-box">
+        <p>
+          Your data already has the answers. I help you find them.
+          I help businesses turn raw and confusing data into clear insights, interactive dashboards, and practical reports that make performance easier to understand and decisions easier to make.
+          I work with Python, SQL, Excel, and Power BI across data cleaning, analysis, visualization, and dashboard development. My focus is not just on making charts look good, but on finding the story behind the numbers and turning it into something useful.
+        </p>
+      </div>
+      <div class="pitch">
+        <span>WHAT I BRING</span>
+        <p>I don't just work with data, I look for what the data is trying to tell you. From messy datasets to interactive dashboards, I focus on making complex information simple, clear, and useful for real business decisions.</p>
+        <p>Have data that needs to make sense? Let's turn it into something useful.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="contact section">
+      <p class="eyebrow">LET'S CONNECT</p>
+      <h2>Have data that needs to make sense?</h2>
+      <p>I'm always interested in practical projects, collaborations, and opportunities to turn data into something useful.</p>
+      <div class="contact-links">
+        <a href="https://linkedin.com/in/mohamedturky22" target="_blank">LinkedIn ↗</a>
+        <a href="https://github.com/MohamedTurky220" target="_blank">GitHub ↗</a>
+        <a href="mailto:mohammedtorky960@gmail.com">Email ↗</a>
+        <a href="tel:+201002523159">Phone ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Mohamed Turky • Data Analysis & Business Intelligence</footer>
+  <script>
+    const projectCases = {
+      we: {
+        title: 'Telecom Customer Analytics & Customer Churn',
+        objective: 'Analyze telecom customer data, understand customer behavior, identify factors related to churn, and turn the findings into useful business insights.',
+        role: 'Data preparation, exploratory analysis, visualization, dashboard development, and machine learning modeling.',
+        process: 'Cleaned and prepared the data, explored customer characteristics and churn patterns, created visualizations and KPIs, developed a Power BI dashboard, and applied machine learning modeling.',
+        output: 'An interactive dashboard with customer and churn insights, supported by data analysis and machine learning results.',
+        value: 'The project transforms raw customer data into clear insights that can help identify churn patterns, understand customer behavior, and support better decisions.',
+        tools: ['Python','Pandas','Power BI','SQL','Machine Learning'],
+        images: ['assets/we-overview.png','assets/we-business.png','assets/we-churn.png']
+      },
+      ecommerce: {
+        title: 'E-Commerce Sales Dashboard',
+        objective: 'Analyze e-commerce sales data and present key performance indicators in a clear interactive dashboard.',
+        role: 'Data preparation, sales analysis, KPI creation, visualization, and dashboard design.',
+        process: 'Prepared the sales data, analyzed performance across key dimensions, created KPIs and visuals, and organized the results into an interactive Power BI dashboard.',
+        output: 'An interactive sales dashboard focused on monitoring performance and making important metrics easier to understand.',
+        value: 'The dashboard makes sales performance easier to monitor and helps turn raw transaction data into practical business insights.',
+        tools: ['Power BI','Excel'],
+        images: []
+      },
+      superstore: {
+        title: 'Super Store Sales Analysis',
+        objective: 'Analyze sales and shipping performance across products, categories, countries, and time periods.',
+        role: 'Data preparation, sales analysis, dashboard development, KPI creation, and business visualization.',
+        process: 'Prepared the Super Store dataset, analyzed sales and profit trends, explored shipping performance and product categories, and built interactive Power BI dashboards.',
+        output: 'A multi-view Power BI dashboard covering sales, profit, shipping, categories, countries, products, and monthly performance.',
+        value: 'The project turns Super Store sales data into a clear business view that makes performance trends and product and shipping patterns easier to explore.',
+        tools: ['Power BI','Excel'],
+        images: ['assets/1.png','assets/2.png']
+      },
+      student: {
+        title: 'Student Performance Analysis',
+        objective: 'Analyze student performance across math, reading, and writing scores and identify patterns related to stronger academic performance.',
+        role: 'Data cleaning, exploratory data analysis, visualization, and interpretation of student performance data.',
+        process: 'Prepared and explored the student dataset, calculated average scores, created Pass/Fail results and letter grades, analyzed performance by gender, parental education, and test preparation, examined relationships between subjects, and identified outliers using the IQR method.',
+        output: 'A Python-based exploratory analysis with visualizations showing student performance patterns, grade distribution, subject relationships, and key performance indicators.',
+        value: 'The project transforms student records into clear insights that help reveal performance patterns and relationships between different academic and demographic factors.',
+        tools: ['Python','Pandas','NumPy','Matplotlib','Seaborn','Plotly'],
+        images: []
+      }
+    };
+
+    function showCase(projectKey, shouldScroll = true){
+      const data = projectCases[projectKey];
+      if(!data) return;
+      document.getElementById('case-title').textContent = data.title;
+      document.getElementById('case-objective').textContent = data.objective;
+      document.getElementById('case-role').textContent = data.role;
+      document.getElementById('case-process').textContent = data.process;
+      document.getElementById('case-output').textContent = data.output;
+      document.getElementById('case-value').textContent = data.value;
+      document.getElementById('case-tools').innerHTML = data.tools.map(t => `<div class="tool">${t}</div>`).join('');
+
+      const main = document.getElementById('case-gallery-main');
+      const grid = document.getElementById('case-gallery-grid');
+      main.innerHTML = '';
+      grid.innerHTML = '';
+
+      if(data.images.length){
+        // Put every dashboard in the same grid so no image appears oversized.
+        data.images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = data.title + ' dashboard preview';
+          grid.appendChild(img);
+        });
+        document.getElementById('case-gallery').style.display = '';
+      } else {
+        document.getElementById('case-gallery').style.display = 'none';
+      }
+
+      if(shouldScroll){
+        document.getElementById('case-study').scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    }
+
+    document.querySelectorAll('.case-btn').forEach(button => {
+      button.addEventListener('click', () => showCase(button.dataset.project));
+    });
+
+    // Load the default case study content on page load without scrolling to it.
+    showCase('we', false);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
