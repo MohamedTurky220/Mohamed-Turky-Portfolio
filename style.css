@@ -856,11 +856,21 @@ footer{
 
   .hero{
     min-height:auto;
-    grid-template-columns:1fr;
+    display:flex;
+    flex-direction:column;
     gap:45px;
     padding-top:65px;
     padding-bottom:70px;
     transform:none;
+  }
+
+  /* On mobile, show the profile card before the text */
+  .hero-card{
+    order:-1;
+  }
+
+  .hero-copy{
+    order:2;
   }
 
   .hero h1{
